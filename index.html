@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div id="task1"></div>
+    <div id="task2"></div>
+
+    <script>
+      function startTimer1() {
+        let totalSeconds = 3600;
+        const timerDisplay1 = document.getElementById("task1");
+
+        const timerInterval1 = setInterval(() => {
+          totalSeconds--;
+          const minutes = Math.floor(totalSeconds / 60);
+          const seconds = totalSeconds % 60;
+          timerDisplay1.textContent = `${minutes} : ${
+            seconds < 10 ? "0" : ""
+          }${seconds}`;
+
+          if (totalSeconds === 30 * 60) {
+            alert("Залишилось менше половини часу");
+          }
+
+          if (totalSeconds <= 0) {
+            clearInterval(timerInterval1);
+          }
+        }, 1000);
+      }
+
+      function startTimer2() {
+        let totalMilliseconds = 30000;
+        const timerDisplay2 = document.getElementById("task2");
+
+        const timerInterval2 = setInterval(() => {
+          totalMilliseconds -= 10;
+          const seconds = Math.floor(totalMilliseconds / 1000);
+          timerDisplay2.textContent = `${seconds}.${Math.floor(
+            (totalMilliseconds % 1000) / 10
+          )}`;
+
+          if (totalMilliseconds <= 0) {
+            clearInterval(timerInterval2);
+          }
+        }, 10);
+      }
+
+      startTimer1();
+      startTimer2();
+    </script>
+  </body>
+</html>
