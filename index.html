@@ -42,6 +42,10 @@
             (totalMilliseconds % 1000) / 10
           )}`;
 
+          if (totalMilliseconds <= 10000) {
+            document.body.style.background = "gray"
+          }
+
           if (totalMilliseconds <= 0) {
             clearInterval(timerInterval2);
           }
